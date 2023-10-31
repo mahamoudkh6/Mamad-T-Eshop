@@ -1,0 +1,113 @@
+{% extends 'layoutShop.html.twig' %}
+
+{% block title %}ESOP MAMAD-T{% endblock %}
+
+{% block content %}
+    {# container #}
+    <div class="container">
+        <div class="row my-5">
+            {# Barre Latérale gauche #}
+            <aside class="col-md-4 sidebar sidebar-left">
+                <div class="row widget">
+                    <div class="col-xs-12">
+                        <h4>Notre boutique</h4>
+                        <p>Bienvenue chez MAMAD-T ! Votre boutique de proximité, spécialisée dans les produits alimentaires africains, nous vous proposons un large choix de produits frais et de qualité.</p>
+                    </div>
+                </div>
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{{ asset('eshop/assets/img/ArachideFrais.jpg') }}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('eshop/assets/img/bananeplantain.jpg') }}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class carousel-item>
+                            <img src="{{ asset('eshop/assets/img/CategoriesAccessoires.jpg') }}" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Précédent</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Suivant</span>
+                    </button>
+                </div>
+                <div class="row widget">
+                    <div class="col-xs-12">
+                        <p>Dans nos rayons, vous retrouverez des fruits et légumes exotiques, des épices, des plats surgelés et de nombreux autres articles et accessoires de qualité.<br>
+                            Régulièrement approvisionnés, nous vous faisons découvrir chaque jour des spécialités différentes, directement importées des quatre coins de l'Afrique.</p>
+                    </div>
+                </div>
+            </aside>
+            {# /Fin Barre Latérale gauche #}
+
+            <!-- Article principal -->
+            <article class="col-md-8 maincontent">
+                <div class="container">
+                    <header class="page-header">
+                        <h1>A Propos de Nous</h1><br>
+                    </header>
+                    <div id="aboutCarousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#aboutCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#aboutCarousel" data-slide-to="1"></li>
+                            <li data-target="#aboutCarousel" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{{ asset('eshop/assets/img/Categories-fruits-legumes.jpg') }}" class="d-block w-100" alt="Image 1">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Notre Histoire</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('eshop/assets/img/BaobabBoissons.jpg') }}" class="d-block w-100" alt="Image 2">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Notre Équipe</h3>
+                                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('eshop/assets/img/FarineDeTapioca.jpg') }}" class="d-block w-100" alt="Image 2">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Notre Équipe</h3>
+                                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('eshop/assets/img/AubergineFrais.webp') }}" class="d-block w-100" alt="Image 3">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Nos Valeurs</h3>
+                                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#aboutCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Précédent</span>
+                        </a>
+                        <a class="carousel-control-next" href="#aboutCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Suivant</span>
+                        </a>
+                    </div>
+                    <div class="about-content">
+                        <h2>Notre Histoire</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum auctor magna at lectus rhoncus, vel consectetur orci fermentum.</p>
+                        <h2>Notre Équipe</h2>
+                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <h2>Nos Valeurs</h2>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+                {# /container #}
+            </article>
+            {# /Article #}
+        </div>
+    </div>
+    {# /container #}
+{% endblock %}

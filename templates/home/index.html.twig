@@ -1,0 +1,78 @@
+{% extends 'layoutShop.html.twig' %}
+
+{% block title %}Hello CategoryShopController!{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row my-5">
+
+        <aside class="col-md-4 sidebar sidebar-left">
+    <!-- Contenu de la barre latérale gauche -->
+    <div class="row widget">
+        <div class="col-xs-12">
+            <h4>Vente flash</h4>
+            <p>Bienvenue chez MAMAD-T ! Votre boutique de proximité, spécialisée dans les produits alimentaires africains,
+                nous vous proposons un large choix de produits frais et de qualité.</p>
+        </div>
+    </div>
+
+    <!-- Carrousel pour les anciens produits -->
+    <div id="carouselOldProducts" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+         {#  {% for key, oldProduct in oldProducts %}
+                {% set image_path = '/uploads/products/' ~ oldProduct.attachment %}
+                <div class="carousel-item {% if key == 0 %}active{% endif %} image-container">
+                    <img src="{{ asset(image_path) }}" class="cover-image" alt="{{ oldProduct.title }}">
+                </div>
+            {% endfor %}  #}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselOldProducts" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselOldProducts" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!-- /Fin du carrousel pour les anciens produits -->
+
+    <div class="row widget mt-4">
+        <div class="col-xs-12">
+            <p>Dans nos rayons, vous retrouverez des fruits et légumes exotiques, des épices, des plats surgelés et de nombreux autres articles et accessoires de qualité.<br>
+                Régulièrement approvisionnés, nous vous faisons découvrir chaque jour des spécialités différentes, directement importées des quatre coins de l'Afrique.</p>
+        </div>
+    </div>
+</aside>
+
+
+        <!-- Contenu principal de l'article -->
+        <article class="col-md-8 maincontent">
+            <header class="page-header">
+                <h1 class="page-title">Categories</h1>
+            </header>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4 my-2">
+                {% for category in categories %}
+                   <div class="col">
+						<div class="card category-card">
+							<img src="  {# {{ vich_uploader_asset(category, 'attachmentFile') }}#}" class="card-img-top category-image" alt=" {{ category.name }} ">
+                      {#  <img src="{{  vich_uploader_asset(product, 'attachmentFile') }}" class="card-img-top product-image" alt="{{ product.title }}">
+#}
+							<div class="card-body">
+								<h5 class="card-title">
+									<a href="{{ path('products_by_category', {'categoryId': category.id}) }}" class="text-decoration-none">{{ category.name }}</a>
+								</h5>
+							</div>
+						</div>
+					</div>
+
+                {% endfor %}
+            </div>
+        </article>
+        <!-- /Fin Contenu principal de l'article -->
+    </div>
+</div>
+
+{% endblock %}
