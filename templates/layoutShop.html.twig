@@ -49,10 +49,10 @@
 
                         {% if not is_granted("ROLE_USER") %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{# {{ path('app_register') }} #}">S'inscrire</a>
+                                <a class="nav-link" href=" {{ path('app_register') }} ">S'inscrire</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href=" {#{{ path('app_login') }} #}">Login</a>
+                                <a class="nav-link" href=" {{ path('app_login') }}">Login</a>
                             </li>
                         {% else %}
                             <li class="nav-item">
@@ -146,14 +146,7 @@
                                 <a href="/">Home</a>
                                 <a href="/aProposDeNous">A propos de nous</a>
                                 <a href="/contactezNous">Contactez nous</a>
-                                <span>
-                                    {# {% if user %}
-                                        <span>Welcome, <strong>{{ user.prenom }}</strong></span>
-                                        <a class="mr-2" href="/logout">Deconnexion</a>
-                                    {% else %}
-                                        <a href="/inscription">Inscription</a>
-                                    {% endif %}#}
-                                    </span>
+
                             </p>
                         </div>
                     </div>
