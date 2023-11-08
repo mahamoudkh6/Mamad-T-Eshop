@@ -21,6 +21,7 @@ class CategoryShopRepository extends ServiceEntityRepository
         parent::__construct($registry, CategoryShop::class);
     }
 
+
 //    /**
 //     * @return CategoryShop[] Returns an array of CategoryShop objects
 //     */

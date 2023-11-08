@@ -20,12 +20,12 @@
     <!-- Carrousel pour les anciens produits -->
     <div id="carouselOldProducts" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-         {#  {% for key, oldProduct in oldProducts %}
+          {% for key, oldProduct in oldProducts %}
                 {% set image_path = '/uploads/products/' ~ oldProduct.attachment %}
                 <div class="carousel-item {% if key == 0 %}active{% endif %} image-container">
                     <img src="{{ asset(image_path) }}" class="cover-image" alt="{{ oldProduct.title }}">
                 </div>
-            {% endfor %}  #}
+            {% endfor %}
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselOldProducts" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -56,14 +56,12 @@
             <div class="row row-cols-1 row-cols-md-3 g-4 my-2">
                 {% for category in categories %}
                    <div class="col">
-						<div class="card category-card">
-							<img src="  {# {{ vich_uploader_asset(category, 'attachmentFile') }}#}" class="card-img-top category-image" alt=" {{ category.name }} ">
-                      {#  <img src="{{  vich_uploader_asset(product, 'attachmentFile') }}" class="card-img-top product-image" alt="{{ product.title }}">
-#}
-							<div class="card-body">
-								<h5 class="card-title">
-									<a href="{{ path('products_by_category', {'categoryId': category.id}) }}" class="text-decoration-none">{{ category.name }}</a>
-								</h5>
+                        <div class="card category-card">
+                            <img src="{{ vich_uploader_asset(category, 'attachmentFile') }}" class="card-img-top category-image" alt="{{ category.name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="{{ path('products_by_category', {'categoryId': category.id}) }}" class="text-decoration-none">{{ category.name }}</a>
+                                </h5>
 							</div>
 						</div>
 					</div>

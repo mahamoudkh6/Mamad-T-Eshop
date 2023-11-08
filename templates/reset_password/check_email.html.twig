@@ -1,11 +1,25 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutShop.html.twig' %}
 
-{% block title %}Password Reset Email Sent{% endblock %}
+{% block title %}Email de réinitialisation du mot de passe envoyé{% endblock %}
 
-{% block body %}
-    <p>
-        If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.
-        This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
-    </p>
-    <p>If you don't receive an email please check your spam folder or <a href="{{ path('app_forgot_password_request') }}">try again</a>.</p>
+{% block content %}
+    <div class="container " style="display: flex; flex-direction: column; min-height: 50vh;">
+    <article class="col-md-8 maincontent" style="flex: 1;">
+            <div class="col-md-8 offset-md-2">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">Email de réinitialisation du mot de passe envoyé</h2>
+                        <p class="card-text">
+                            Si un compte correspondant à votre adresse e-mail existe, un e-mail vient d'être envoyé.
+                            Cet e-mail contient un lien que vous pouvez utiliser pour réinitialiser votre mot de passe.
+                            Ce lien expirera dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+                        </p>
+                        <p class="card-text">
+                            Si vous ne recevez pas d'e-mail, veuillez vérifier dans vos spams ou <a href="{{ path('app_forgot_password_request') }}">réessayez</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

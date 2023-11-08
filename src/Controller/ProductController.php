@@ -1,5 +1,7 @@
 <?php
 
+// ProductController.php
+
 namespace App\Controller;
 
 use App\Entity\Product;
@@ -28,7 +30,6 @@ class ProductController extends AbstractController
     }
 
 
-
     /**
      * @Route("/product/{id}", name="product_show")
      */
@@ -40,23 +41,22 @@ class ProductController extends AbstractController
         }
 
         // Préparation des données du produit
-        $productId =$product->getId();
+        $productId = $product->getId();
         $productTitle = $product->getTitle();
         $productContent = $product->getContent();
         $productPrice = $product->getPrice();
         $productAttachment = $product->getAttachment();
         $productOrigine = $product->getOrigine();
 
+
         return $this->render('product/productShow.html.twig', [
             'product' => $product,
-            'product_id'=>$productId,
+            'product_id' => $productId,
             'product_title' => $productTitle,
             'product_content' => $productContent,
             'product_price' => $productPrice,
             'product_attachment' => $productAttachment,
-            'product_origine' => $productOrigine
+            'product_origine' => $productOrigine,
         ]);
     }
-
-
 }

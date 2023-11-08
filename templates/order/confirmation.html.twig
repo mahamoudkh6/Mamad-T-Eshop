@@ -1,0 +1,23 @@
+{% extends 'layoutShop.html.twig' %}
+
+{% block title %}Corfirmation de commande{% endblock %}
+
+{% block content %}
+
+   <div class="container " style="display: flex; flex-direction: column; min-height: 50vh;">
+    <article class="col-md-8 maincontent" style="flex: 1;">
+            <div class="col-md-8 offset-md-2">
+                <h1 class="text-center">Confirmation !</h1>
+
+                    <h1>Merci {{ username }} de votre commande, à bientôt !</h1>
+                    <p>
+                        <a href="{{ path('app_logout') }}" class="btn btn-danger">Se déconnecter</a>
+                        <a href="{{ path('home') }}" class="btn btn-primary">Retour à la page d'accueil</a>
+                    </p>
+
+            </div>
+        </article>
+    </div>
+{% endblock %}
+
+
