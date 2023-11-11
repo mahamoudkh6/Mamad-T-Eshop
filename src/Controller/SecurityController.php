@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -29,4 +30,12 @@ class SecurityController extends AbstractController
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
+
+    #[Route(path: '/login-success', name: 'login_success')]
+    public function loginSuccess(Request $request): Response
+    {
+        // Redirige l'utilisateur vers la page de commande après la connexion
+        return $this->redirectToRoute('order_index');
+    }
+
 }

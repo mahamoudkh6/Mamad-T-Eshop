@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class ChangePasswordFormType extends AbstractType
 {
@@ -26,22 +27,33 @@ class ChangePasswordFormType extends AbstractType
                     'constraints' => [
                         new NotBlank([
                             'message' => 'Please enter a password',
-                        ]),  // Champ de mot de passe
-
+                        ]),
                         new Length([
                             'min' => 12,
-                            'minMessage' => 'Your password should be at least {{ limit }} characters',
-                            'max' => 4096,
-                        ]),  // Contraintes de longueur pour le mot de passe
+                            'minMessage' => 'Votre mot de passe doit contenir au moins {{ limit }} caractères.',
+                            // max length allowed by Symfony for security reasons
+                            'max' => 60,
+                        ]),
+                        new Regex([
+                            // (?=.*[A-Z])  => Majuscule
+                            // (?=.*[\W_])  => Caractère spécial
+                            // (?=.*\d)     => Chiffre
+                            // .{12,}       => 12 caractères
+                            'pattern' => '/^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{12,}$/',
+                            'message' => 'Le mot de passe doit contenir au moins une majuscule, un chiffre et un caractère spécial.'
+                        ])
                     ],
-                    'label' => 'New password',  // Étiquette pour le nouveau mot de passe
+                    'label' => 'Nouveau mot de passe',
                 ],
                 'second_options' => [
-                    'label' => 'Repeat Password',  // Étiquette pour la confirmation du mot de passe
+                    'label' => 'Répétez le mot de passe',
                 ],
-                'invalid_message' => 'The password fields must match.',  // Message en cas de non-correspondance
-                'mapped' => false,  // Non lié à l'objet directement, lu et encodé dans le contrôleur
-            ]);
+                'invalid_message' => 'Les champs du mot de passe doivent correspondre.',
+                // Instead of being set onto the object directly,
+                // this is read and encoded in the controller
+                'mapped' => false,
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

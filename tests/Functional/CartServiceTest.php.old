@@ -1,0 +1,141 @@
+<?php
+
+namespace App\Tests\Unit;
+
+use App\Entity\Product;
+use App\Service\CartService;
+use Doctrine\ORM\EntityManagerInterface;
+use PHPUnit\Framework\TestCase;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+
+class CartServiceTest extends TestCase
+{
+    public function testAddToCart()
+    {
+        $requestStack = $this->createMock(RequestStack::class);
+        $entityManager = $this->createMock(EntityManagerInterface::class);
+        $session = $this->createMock(SessionInterface::class);
+
+        $requestStack->method('getSession')->willReturn($session);
+
+        $cartService = new CartService($requestStack, $entityManager);
+
+        $productId = 1;
+
+        // Adding a product to the cart
+        $cartService->addToCart($productId);
+
+        // Retrieving the cart content
+        $cartContent = $cartService->getTotal();
+
+        // Asserting that the cart contains the added product with quantity 1
+        $this->assertEquals(1, count($cartContent));
+        $this->assertEquals($productId, $cartContent[0]['product']->getId());
+        $this->assertEquals(1, $cartContent[0]['quantity']);
+    }
+
+    public function testRemoveToCart()
+    {
+        $requestStack = $this->createMock(RequestStack::class);
+        $entityManager = $this->createMock(EntityManagerInterface::class);
+        $session = $this->createMock(SessionInterface::class);
+
+        $requestStack->method('getSession')->willReturn($session);
+
+        $cartService = new CartService($requestStack, $entityManager);
+
+        $productId = 1;
+
+        // Adding a product to the cart
+        $cartService->addToCart($productId);
+
+        // Removing the product from the cart
+        $cartService->removeToCart($productId);
+
+        // Retrieving the cart content
+        $cartContent = $cartService->getTotal();
+
+        // Asserting that the cart is empty after removing the product
+        $this->assertEquals(0, count($cartContent));
+    }
+
+    public function testDecrease()
+    {
+        $requestStack = $this->createMock(RequestStack::class);
+        $entityManager = $this->createMock(EntityManagerInterface::class);
+        $session = $this->createMock(SessionInterface::class);
+
+        $requestStack->method('getSession')->willReturn($session);
+
+        $cartService = new CartService($requestStack, $entityManager);
+
+        $productId = 1;
+
+        // Adding a product to the cart
+        $cartService->addToCart($productId);
+
+        // Decreasing the quantity of the product in the cart
+        $cartService->decrease($productId);
+
+        // Retrieving the cart content
+        $cartContent = $cartService->getTotal();
+
+        // Asserting that the cart is empty after decreasing the product quantity
+        $this->assertEquals(0, count($cartContent));
+    }
+
+    public function testRemoveCartAll()
+    {
+        $requestStack = $this->createMock(RequestStack::class);
+        $entityManager = $this->createMock(EntityManagerInterface::class);
+        $session = $this->createMock(SessionInterface::class);
+
+        $requestStack->method('getSession')->willReturn($session);
+
+        $cartService = new CartService($requestStack, $entityManager);
+
+        $productId = 1;
+
+        // Adding a product to the cart
+        $cartService->addToCart($productId);
+
+        // Removing all products from the cart
+        $cartService->removeCartAll();
+
+        // Retrieving the cart content
+        $cartContent = $cartService->getTotal();
+
+        // Asserting that the cart is empty after removing all products
+        $this->assertEquals(0, count($cartContent));
+    }
+
+    public function testGetTotal()
+    {
+        $requestStack = $this->createMock(RequestStack::class);
+        $entityManager = $this->createMock(EntityManagerInterface::class);
+        $session = $this->createMock(SessionInterface::class);
+
+        $requestStack->method('getSession')->willReturn($session);
+
+        $cartService = new CartService($requestStack, $entityManager);
+
+        $product1 = $this->createMock(Product::class);
+        $product1->method('getId')->willReturn(1);
+
+        $product2 = $this->createMock(Product::class);
+        $product2->method('getId')->willReturn(2);
+
+        // Adding products to the cart
+        $cartService->addToCart(1);
+        $cartService->addToCart(2);
+
+        // Retrieving the cart content
+        $cartContent = $cartService->getTotal();
+
+        // Asserting that the cart contains the added products
+        $this->assertEquals(2, count($cartContent));
+        $this->assertEquals(1, $cartContent[0]['product']->getId());
+        $this->assertEquals(2, $cartContent[1]['product']->getId());
+    }
+}

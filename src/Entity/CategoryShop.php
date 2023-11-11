@@ -43,8 +43,10 @@ class CategoryShop
     private ?File $attachmentFile = null;
 
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $createdAt = null;
+   /**
+ * @ORM\Column(type="datetime", nullable=true)
+ */
+private $createdAt;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updated_at = null;

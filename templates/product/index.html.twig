@@ -15,6 +15,9 @@
                             <h5 class="card-title">{{ product.title }}</h5>
                             <p class="card-text">Prix: {{ product.price/100  }} €</p>
                             <p class="card-text">Origine : {{ product.origine }}</p>
+                             <p class="card-text">{{ product.content |slice(0, 100 )| raw }}
+                             <a href="{{ path('product_show', {'id': product.id}) }}" style="text-decoration: none; ">
+                                    ...lire la suite</a> </p>
                         </div>
                         <div class="card-footer">
                             <a href="{{ path('product_show', {'id': product.id}) }}" class="btn btn-primary">Détails</a>
