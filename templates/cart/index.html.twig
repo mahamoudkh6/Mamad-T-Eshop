@@ -4,6 +4,7 @@
 
 {% block content %}
 <section class="h-100" style="background-color: #eee;">
+{% set cartItemCount = cart|length %}
     {% if cart|length > 0 %}
         <div class="container h-100 py-5">
             <form action="{{ path('order_index') }}">
@@ -65,6 +66,8 @@
                                 </div>
                             </div>
                         {% endfor %}
+
+
 
                         {#Nombre total de produit dans le panier#}
                          <div class="card rounded-3 mb-4">

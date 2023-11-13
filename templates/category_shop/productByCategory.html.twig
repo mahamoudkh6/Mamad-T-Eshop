@@ -16,14 +16,20 @@
                         <img src="{{ image_path }}" class="card-img-top" alt="{{ product.title }}">
                         <div class="card-body">
                             <h5 class="card-title">
-                                <a "{{ path('products_by_category', {'categoryId': category.id}) }}"  class="text-decoration-none">{{ product.title }}</a>
+                                <a href="{{ path('products_by_category', {'categoryId': category.id}) }}" class="text-decoration-none">{{ product.title }}</a>
                             </h5>
+                            <p class="card-text">
+                                {{ product.content | striptags | slice(0, 70) | raw }}
+                                {% if product.content | length > 70 %}
+                                    <a href="{{ path('product_show', {'id': product.id}) }}" style="text-decoration: none;">... Lire la suite</a>
+                                {% endif %}
+                            </p>
                         </div>
                         <div class="card-footer">
                             <div class="text-muted">
                                 <p class="card-text">Prix : {{ product.price/100 }} €</p>
                                 <p class="card-text">Origine : {{ product.origine }}</p>
-                                <a href=" {{ path('cart_add', {'id': product.id}) }}" class="btn btn-primary add-to-cart" data-product="{{ product.id }}">Ajouter au panier</a>
+                                <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-primary add-to-cart" data-product="{{ product.id }}">Ajouter au panier</a>
                             </div>
                         </div>
                     </div>
@@ -32,5 +38,3 @@
         </div>
     </div>
 {% endblock %}
-
-

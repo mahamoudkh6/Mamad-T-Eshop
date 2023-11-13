@@ -11,32 +11,40 @@
     <!-- Contenu de la barre latérale gauche -->
     <div class="row widget">
         <div class="col-xs-12">
-            <h4>Vente flash</h4>
-            <p>Bienvenue chez MAMAD-T ! Votre boutique de proximité, spécialisée dans les produits alimentaires africains,
-                nous vous proposons un large choix de produits frais et de qualité.</p>
+            <h4>🚀 Vente Flash Exceptionnelle ! 🚀</h4>
+            <p> Cher client,
+Ne manquez pas notre VENTE FLASH, valable pour un temps limité ! Profitez de réductions exclusives sur une sélection de produits de qualité. C'est l'occasion parfaite pour obtenir vos articles préférés à des prix imbattables.
+🕒 Dépêchez-vous, cette offre se termine bientôt ! 🕒 </p>
         </div>
     </div>
 
-    <!-- Carrousel pour les anciens produits -->
-    <div id="carouselOldProducts" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          {% for key, oldProduct in oldProducts %}
-                {% set image_path = '/uploads/products/' ~ oldProduct.attachment %}
-                <div class="carousel-item {% if key == 0 %}active{% endif %} image-container">
-                    <img src="{{ asset(image_path) }}" class="cover-image" alt="{{ oldProduct.title }}">
+<!-- Carrousel pour les anciens produits -->
+<div id="carouselOldProducts" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        {% for key, oldProduct in oldProducts %}
+            {% set image_path = '/uploads/products/' ~ oldProduct.attachment %}
+            <div class="carousel-item {% if key == 0 %}active{% endif %} image-container">
+                <a href="{{ path('product_show', {'id': oldProduct.id}) }}">
+                    <img src="{{ asset(image_path) }}" class="cover-image" alt="{{ oldProduct.title }}" style="width: 100%; height: 400px; object-fit: cover;">
+                </a>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>{{ oldProduct.title }}</h5>
                 </div>
-            {% endfor %}
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselOldProducts" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselOldProducts" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+            </div>
+        {% endfor %}
     </div>
-    <!-- /Fin du carrousel pour les anciens produits -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselOldProducts" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselOldProducts" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<!-- /Fin du carrousel pour les anciens produits -->
+
+
 
     <div class="row widget mt-4">
         <div class="col-xs-12">
@@ -47,29 +55,28 @@
 </aside>
 
 
-        <!-- Contenu principal de l'article -->
-        <article class="col-md-8 maincontent">
-            <header class="page-header">
-                <h1 class="page-title">Categories</h1>
-            </header>
+    <!-- Contenu principal de l'article -->
+    <article class="col-md-8 maincontent">
+        <header class="page-header">
+            <h1 class="page-title">Categories</h1>
+        </header>
 
-            <div class="row row-cols-1 row-cols-md-3 g-4 my-2">
-                {% for category in categories %}
-                   <div class="col">
+        <div class="row row-cols-1 row-cols-md-3 g-4 my-2">
+            {% for category in categories %}
+                <div class="col">
+                    <a href="{{ path('products_by_category', {'categoryId': category.id}) }}" class="text-decoration-none">
                         <div class="card category-card">
-                            <img src="{{ vich_uploader_asset(category, 'attachmentFile') }}" class="card-img-top category-image" alt="{{ category.name }}">
+                            <img src="{{ vich_uploader_asset(category, 'attachmentFile') }}" class="card-img-top category-image" alt="{{ category.name }}" style="width: 100%; height: 200px; object-fit: cover;">
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    <a href="{{ path('products_by_category', {'categoryId': category.id}) }}" class="text-decoration-none">{{ category.name }}</a>
-                                </h5>
-							</div>
-						</div>
-					</div>
+                                <h5 class="card-title">{{ category.name }}</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </article>
 
-                {% endfor %}
-            </div>
-        </article>
-        <!-- /Fin Contenu principal de l'article -->
     </div>
 </div>
 

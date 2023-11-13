@@ -1,6 +1,6 @@
 {% extends 'layoutShop.html.twig' %}
 
-{% block title %}ESOP MAMAD-T{% endblock %}
+{% block title %}ESHOP MAMAD-T{% endblock %}
 
 {% block content %}
     {# container #}
@@ -11,19 +11,19 @@
                 <div class="row widget">
                     <div class="col-xs-12">
                         <h4>Notre boutique</h4>
-                        <p>Bienvenue chez MAMAD-T ! Votre boutique de proximité, spécialisée dans les produits alimentaires africains, nous vous proposons un large choix de produits frais et de qualité.</p>
+                        <p>Bienvenue chez MAMAD-T ! Votre boutique de proximité, spécialisée dans les produits alimentaires africains, vous propose un large choix de produits frais et de qualité.</p>
                     </div>
                 </div>
                 <div id="carouselExample" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="{{ asset('eshop/assets/img/ArachideFrais.jpg') }}" class="d-block w-100" alt="...">
+                            <img src="{{ asset('eshop/assets/img/ArachideFrais.jpg') }}" class="d-block w-100 img-fluid" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="{{ asset('eshop/assets/img/bananeplantain.jpg') }}" class="d-block w-100" alt="...">
+                            <img src="{{ asset('eshop/assets/img/bananeplantain.jpg') }}" class="d-block w-100 img-fluid" alt="...">
                         </div>
                         <div class carousel-item>
-                            <img src="{{ asset('eshop/assets/img/CategoriesAccessoires.jpg') }}" class="d-block w-100" alt="...">
+                            <img src="{{ asset('eshop/assets/img/CategoriesAccessoires.jpg') }}" class="d-block w-100 img-fluid" alt="...">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -47,67 +47,38 @@
             <!-- Article principal -->
             <article class="col-md-8 maincontent">
                 <div class="container">
-                    <header class="page-header">
-                        <h1>A Propos de Nous</h1><br>
+                    <header class="page-header text-center mb-5">
+                        <h1 class="display-4 fw-bold">À Propos de Nous</h1>
                     </header>
-                    <div id="aboutCarousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#aboutCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#aboutCarousel" data-slide-to="1"></li>
-                            <li data-target="#aboutCarousel" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="{{ asset('eshop/assets/img/Categories-fruits-legumes.jpg') }}" class="d-block w-100" alt="Image 1">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h3>Notre Histoire</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{{ asset('eshop/assets/img/BaobabBoissons.jpg') }}" class="d-block w-100" alt="Image 2">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h3>Notre Équipe</h3>
-                                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{{ asset('eshop/assets/img/FarineDeTapioca.jpg') }}" class="d-block w-100" alt="Image 2">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h3>Notre Équipe</h3>
-                                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{{ asset('eshop/assets/img/AubergineFrais.webp') }}" class="d-block w-100" alt="Image 3">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h3>Nos Valeurs</h3>
-                                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                                </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="{{ asset('eshop/assets/img/ImageM.png') }}" class="d-block w-100 img-fluid mb-5 float-md-end" alt="Histoire de MAMAD-T">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about-content">
+                                <h2 class="mb-4">Notre Histoire</h2>
+                                <p class="lead">L'histoire de MAMAD-T est celle d'une passion partagée pour la cuisine africaine authentique. Fondée en 2015 par MAMAD-T, notre entreprise s'est engagée à apporter la richesse des saveurs de l'Afrique à votre table. Chaque produit que nous proposons est soigneusement sélectionné pour refléter l'essence même de la gastronomie africaine.</p>
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#aboutCarousel" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Précédent</span>
-                        </a>
-                        <a class="carousel-control-next" href="#aboutCarousel" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Suivant</span>
-                        </a>
-                    </div>
-                    <div class="about-content">
-                        <h2>Notre Histoire</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum auctor magna at lectus rhoncus, vel consectetur orci fermentum.</p>
-                        <h2>Notre Équipe</h2>
-                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                        <h2>Nos Valeurs</h2>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <div class="col-md-12">
+                            <div class="about-content">
+                            <h2 class="mb-4">Notre Équipe</h2>
+                                    <p class="lead">Notre équipe est composée de chefs talentueux, d'experts en produits alimentaires et de passionnés de culture africaine. Ensemble, nous travaillons chaque jour pour vous offrir une expérience culinaire exceptionnelle, de la qualité de nos produits à l'excellence de notre service.</p>
+                                    <h2 class="mb-4">Nos Valeurs</h2>
+                                    <p class="lead">Nos valeurs fondamentales reposent sur l'authenticité, la qualité et la satisfaction du client. Nous croyons en la transparence, en l'intégrité et en l'engagement envers nos clients. Chez MAMAD-T, chaque produit a une histoire et chaque client est un membre précieux de notre communauté.</p>
+                                </div>
+                        </div>
                     </div>
                 </div>
                 {# /container #}
             </article>
             {# /Article #}
+
         </div>
     </div>
     {# /container #}
 {% endblock %}
+
+
+
+

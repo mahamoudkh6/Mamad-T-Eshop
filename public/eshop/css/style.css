@@ -137,20 +137,12 @@ body {
   margin-bottom: 20px;
 }
 
-.sidebar h1,
-.sidebar .h1,
-.sidebar h2,
-.sidebar .h2,
-.sidebar h3,
-.sidebar .h3 {
-  margin-top: 20px;
-}
-
-
 .card-image {
-  width: "150";
-  height: "200";
+  width: 150px;
+  height: 200px;
 }
+
+
 
 .logo-round {
   width: 90px;
@@ -168,6 +160,7 @@ body {
 /* Personnalisation des cartes */
 
 /* CSS pour harmoniser la taille des images des produits */
+
 .card {
   border: 1px solid #dee2e6;
   border-radius: 10px;
@@ -204,27 +197,5 @@ body {
 
 .add-to-cart:hover {
   background-color: hsl(211, 100%, 35%);
-}
-
-/*  les cartes de catégorie */
-.card {
-  border: 1px solid #dee2e6;
-  border-radius: 10px;
-  margin: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.card-title {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-/*  le texte sous les cartes */
-.card-text {
-  font-size: 14px;
-  color: #6c757d;
-}
-.category-card {
-  height: 250px;
 }
 

@@ -50,8 +50,6 @@ class CartService {
     }
 
 
-
-
     public function removeCartAll()
     {
         return $this->getSession()->remove('cart');

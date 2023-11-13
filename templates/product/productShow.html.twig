@@ -3,26 +3,47 @@
 {% block title %}Détails du Produit{% endblock %}
 
 {% block content %}
-    <div class="container">
-        <h1>Détails du Produit</h1>
+    <style>
+        .product-details-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20px;
+        }
 
-        <div class="card">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                        <img src="{{  vich_uploader_asset(product, 'attachmentFile') }}" class="card-img-top product-image" alt="{{ product.title }}">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h1 class="card-title fs-1">{{ product_title }}</h1>
-                        <br/>
-                        <p class="card-text">{{ product_content | raw }}</p>
-                        <br/>
-                        <h2 class="card-text fs-2">Prix: {{ product_price/100 }} €</h2>
-                        <p class="card-text fs-3">Origine: {{ product_origine }}</p>
-                    </div>
-                </div>
+        .product-image {
+            width: 50%;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .product-details {
+            text-align: center;
+        }
+
+        .product-description {
+            margin-top: 20px;
+        }
+
+        .btn-container {
+            margin-top: 20px;
+        }
+    </style>
+
+    <div class="container">
+        <h1 class="mt-5 mb-4 text-center">Détails du Produit</h1>
+
+        <div class="card product-details-container">
+            <img src="{{ vich_uploader_asset(product, 'attachmentFile') }}" class="card-img-top product-image" alt="{{ product.title }}">
+            <div class="card-body product-details">
+                <h1 class="card-title fs-1">{{ product_title }}</h1>
+                <h2 class="card-text fs-2">Prix: {{ product_price/100 }} €</h2>
+                <p class="card-text fs-3">Origine: {{ product_origine }}</p>
+                <div class="product-description fs-4">{{ product_content | raw }}</div>
             </div>
-            <div class="card-footer">
+            <div class="btn-container card-footer">
                 <a href="{{ path('cart_add', {'id': product_id}) }}" class="btn btn-primary">Ajouter au panier</a>
                 <a href="{{ path('product_list') }}" class="btn btn-secondary">Retour à la liste des produits</a>
             </div>

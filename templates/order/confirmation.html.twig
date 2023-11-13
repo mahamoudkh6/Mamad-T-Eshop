@@ -1,23 +1,20 @@
 {% extends 'layoutShop.html.twig' %}
 
-{% block title %}Corfirmation de commande{% endblock %}
+{% block title %}Confirmation de commande{% endblock %}
 
 {% block content %}
-
-   <div class="container " style="display: flex; flex-direction: column; min-height: 50vh;">
-    <article class="col-md-8 maincontent" style="flex: 1;">
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 50vh;">
+        <article class="col-md-8 maincontent" style="flex: 1; text-align: center;">
             <div class="col-md-8 offset-md-2">
-                <h1 class="text-center">Confirmation !</h1>
+                <h1 class="display-4 fw-bold mb-4">Commande confirmée</h1>
+                <p class="lead">Merci, {{ username }}, pour votre commande chez MAMAD-T. Nous sommes ravis de vous avoir comme client.</p>
+                <p class="lead">Votre commande est en cours de traitement. Elle sera bientôt prête pour la livraison.</p>
 
-                    <h1>Merci {{ username }} de votre commande, à bientôt !</h1>
-                    <p>
-                        <a href="{{ path('app_logout') }}" class="btn btn-danger">Se déconnecter</a>
-                        <a href="{{ path('home') }}" class="btn btn-primary">Retour à la page d'accueil</a>
-                    </p>
-
+                <div class="mt-5">
+                    <a href="{{ path('app_logout') }}" class="btn btn-danger me-3">Se déconnecter</a>
+                    <a href="{{ path('home') }}" class="btn btn-primary">Retour à la page d'accueil</a>
+                </div>
             </div>
         </article>
     </div>
 {% endblock %}
-
-
